@@ -5,7 +5,7 @@ Home: https://github.com/vatlab/jupyterlab-sos
 
 Package license: BSD 3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: A JupyterLab extension for SoS Polyglot Notebook and Workflow System
 
