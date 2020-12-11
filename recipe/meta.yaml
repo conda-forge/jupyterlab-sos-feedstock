@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-sos" %}
-{% set version = "0.6.9" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
 
   url: https://registry.npmjs.org/jupyterlab-sos/-/jupyterlab-sos-{{ version }}.tgz
-  sha256: f7c7b87e24b33a2f6bc223f38f200a0ef04901d52af99a007e05d8be4db89861
+  sha256: 5c5f275706f4e18a7a5919ef05f3acc16ca4691934d45eb70d30967e073de7b4
 
 build:
   number: 0
