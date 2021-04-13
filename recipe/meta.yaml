@@ -1,36 +1,43 @@
 {% set name = "jupyterlab-sos" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.0" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-
-  url: https://registry.npmjs.org/jupyterlab-sos/-/jupyterlab-sos-{{ version }}.tgz
-  sha256: f6650c8986b0ebad4fd079ce737439a1752daedd349949cb91ff2916337bd753
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab-sos-{{ version }}.tar.gz
+  sha256: 38d09be88ab861699bc491a204eb7d62e38c66729444c1b372ea3239fb68cab4
 
 build:
   number: 0
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - nodejs
   host:
-    - jupyterlab
-    - python >=3.5
+    - jupyter-packaging
+    - pip
+    - python >=3.6
   run:
-    - jupyterlab
-    - nodejs
-    - python >=3.5
+    - jupyterlab >=3.0.0
     - jupyterlab-transient-display-data
+    - nodejs
+    - python >=3.6
 
 test:
+  imports:
+    - jupyterlab-sos
   commands:
     - jupyter labextension list | grep jupyterlab-sos  # [unix]
     - jupyter labextension list | findstr jupyterlab-sos  # [win]
     - jupyter lab build
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
