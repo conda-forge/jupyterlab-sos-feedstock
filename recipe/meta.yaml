@@ -36,7 +36,7 @@ test:
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: A JupyterLab extension for SoS Polyglot Notebook and Workflow System
