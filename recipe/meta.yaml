@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   build:
@@ -29,12 +29,7 @@ requirements:
     - python >=3.6
 
 test:
-  imports:
-    - jupyterlab-sos
   commands:
-    - jupyter labextension list | grep jupyterlab-sos  # [unix]
-    - jupyter labextension list | findstr jupyterlab-sos  # [win]
-    - jupyter lab build
     - pip check
   requires:
     - pip
