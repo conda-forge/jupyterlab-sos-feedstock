@@ -27,12 +27,16 @@ requirements:
     - jupyterlab-transient-display-data
     - nodejs
     - python >=3.6
+    - sos
 
 test:
   commands:
     - pip check
   requires:
     - pip
+    - sos
+    - sos-notebook
+    - transient-display-data
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
