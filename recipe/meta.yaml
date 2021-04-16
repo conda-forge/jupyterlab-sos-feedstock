@@ -36,6 +36,7 @@ test:
     - pip
     - sos
     - sos-notebook
+    - jupyterlab >=3.0.0
     - jupyterlab-transient-display-data
 
 about:
