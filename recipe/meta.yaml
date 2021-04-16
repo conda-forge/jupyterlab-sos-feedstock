@@ -31,13 +31,10 @@ requirements:
 
 test:
   commands:
-    - pip check
-  requires:
-    - pip
-    - sos
-    - sos-notebook
-    - jupyterlab >=3.0.0
-    - jupyterlab-transient-display-data
+    - jupyter labextension list
+    - jupyter lab build
+    - jupyter labextension list 1>labextensions 2>&1  # [unix]
+    - grep "jupyterlab-sos.*enabled.*OK" labextensions  # [unix]
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
