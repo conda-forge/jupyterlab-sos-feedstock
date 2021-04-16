@@ -36,7 +36,7 @@ test:
     - pip
     - sos
     - sos-notebook
-    - transient-display-data
+    - jupyterlab-transient-display-data
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
