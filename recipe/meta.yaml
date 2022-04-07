@@ -56,6 +56,9 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage('jupyterlab_sos', exact=True) }}
+    test:
+      commands:
+        - jupyter labextension list
 
 about:
   home: https://github.com/vatlab/jupyterlab-sos
