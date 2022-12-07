@@ -1,5 +1,5 @@
 {% set name = "jupyterlab_sos" %}
-{% set version = "0.8.8" %}
+{% set version = "0.9.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5a67f69ca6f8de7c0f363fb5b12b975526267bad9b5367026ebbed8eb01f8cb5
+  sha256: 3865f6aa6964efc8764d6e565523cd6ea92aef1e107f1cb0089591ed7b2af35d
 
 build:
   number: 0
