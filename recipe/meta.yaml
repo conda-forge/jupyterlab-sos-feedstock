@@ -20,12 +20,12 @@ requirements:
   host:
     - jupyter-packaging
     - pip
-    - python >=3.6
+    - python >=3.10
   run:
-    - jupyterlab >=3.0.0
+    - jupyterlab >=4.0.0
     - jupyterlab-transient-display-data
     - nodejs
-    - python >=3.6
+    - python >=3.10
     - sos
 
 outputs:
@@ -38,12 +38,12 @@ outputs:
       host:
         - jupyter-packaging
         - pip
-        - python >=3.6
+        - python >=3.10
       run:
-        - jupyterlab >=3.0.0
+        - jupyterlab >=4.0.0
         - jupyterlab-transient-display-data
         - nodejs
-        - python >=3.6
+        - python >=3.10
         - sos
     test:
       commands:
