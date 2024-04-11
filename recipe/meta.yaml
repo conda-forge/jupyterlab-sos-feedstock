@@ -1,5 +1,5 @@
 {% set name = "jupyterlab_sos" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3865f6aa6964efc8764d6e565523cd6ea92aef1e107f1cb0089591ed7b2af35d
+  sha256: 9350efc1fb42be7afd91b0c1af5b96e17de9107326c4e0a67d11f645443e6c3f
 
 build:
   number: 0
@@ -18,32 +18,41 @@ requirements:
   build:
     - nodejs
   host:
+    - hatchling
+    - hatch-jupyter-builder
+    - hatch-nodejs-version
     - jupyter-packaging
     - pip
-    - python >=3.6
+    - python >=3.10
   run:
-    - jupyterlab >=3.0.0
+    - jupyterlab >=4.0.0
     - jupyterlab-transient-display-data
     - nodejs
-    - python >=3.6
+    - python >=3.10
     - sos
 
 outputs:
   - name: jupyterlab_sos
     build:
-      script: python -m pip install . --no-deps --ignore-installed -vv
+      script: 
+        - python -m pip install . -vv --no-deps --no-build-isolation
+        - cp -r jupyterlab_sos/labextension/* ${PREFIX}/share/jupyter/labextensions/jupyterlab-sos
+      noarch: python
     requirements:
       build:
         - nodejs
       host:
+        - hatchling
+        - hatch-jupyter-builder
+        - hatch-nodejs-version
         - jupyter-packaging
         - pip
-        - python >=3.6
+        - python >=3.10
       run:
-        - jupyterlab >=3.0.0
+        - jupyterlab >=4.0.0
         - jupyterlab-transient-display-data
         - nodejs
-        - python >=3.6
+        - python >=3.10
         - sos
     test:
       commands:
@@ -53,6 +62,8 @@ outputs:
         - grep "jupyterlab-sos.*enabled.*OK" labextensions  # [unix]
 
   - name: jupyterlab-sos
+    build:
+      noarch: python
     requirements:
       run:
         - {{ pin_subpackage('jupyterlab_sos', exact=True) }}
