@@ -1,5 +1,5 @@
 {% set name = "jupyterlab_sos" %}
-{% set version = "0.10.1" %}
+{% set version = "0.10.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9350efc1fb42be7afd91b0c1af5b96e17de9107326c4e0a67d11f645443e6c3f
+  sha256: f96c116950b43a8eb76736bd3581d6084ea7fc24361d4837b4d4522d86e277d1
 
 build:
   number: 0
@@ -34,7 +34,7 @@ requirements:
 outputs:
   - name: jupyterlab_sos
     build:
-      script: 
+      script:
         - python -m pip install . -vv --no-deps --no-build-isolation
         - cp -r jupyterlab_sos/labextension/* ${PREFIX}/share/jupyter/labextensions/jupyterlab-sos
       noarch: python
