@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "jupyterlab_sos" %}
 {% set version = "0.11.0" %}
 
@@ -7,11 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 13e4258fc3776497311e7911ad20d7ee7b5e63c97efa72bd355aee3e4c6657dc
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
@@ -23,12 +24,12 @@ requirements:
     - hatch-nodejs-version
     - jupyter-packaging
     - pip
-    - python >=3.10
+    - python {{ python_min }}
   run:
     - jupyterlab >=4.0.0
     - jupyterlab-transient-display-data
     - nodejs
-    - python >=3.10
+    - python >={{ python_min }}
     - sos
 
 outputs:
@@ -47,14 +48,16 @@ outputs:
         - hatch-nodejs-version
         - jupyter-packaging
         - pip
-        - python >=3.10
+        - python {{ python_min }}
       run:
         - jupyterlab >=4.0.0
         - jupyterlab-transient-display-data
         - nodejs
-        - python >=3.10
+        - python >={{ python_min }}
         - sos
     test:
+      requires:
+        - python {{ python_min }}
       commands:
         - jupyter labextension list
         - jupyter lab build
@@ -68,6 +71,8 @@ outputs:
       run:
         - {{ pin_subpackage('jupyterlab_sos', exact=True) }}
     test:
+      requires:
+        - python {{ python_min }}
       commands:
         - jupyter labextension list
 
